@@ -17,11 +17,13 @@ class Locations extends StatelessWidget {
   final void Function(Location location) onToggleFavorite;
 
   void _onLocationTap(BuildContext context, Location location) {
-    Navigator.of(context).pushNamed(
-      LocationDetail.routeName,
-      arguments: {
-        'location': location,
-      },
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => LocationDetail(
+          onToggle: onToggleFavorite,
+          location: location,
+        ),
+      ),
     );
   }
 

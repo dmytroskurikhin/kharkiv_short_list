@@ -5,19 +5,16 @@ import '../widgets/location_tile.dart';
 import '../models/location.dart';
 
 class LocationDetail extends StatelessWidget {
-  const LocationDetail({super.key, required this.onToggle});
+  const LocationDetail({super.key, required this.onToggle, required this.location});
+  final Location location;
 
   final void Function(Location location) onToggle;
-  static const routeName = '/locationDetail';
 
   @override
   Widget build(BuildContext context) {
-    final routeArgs =
-        ModalRoute.of(context)!.settings.arguments as Map<String, Location>;
-    final location = routeArgs['location'];
     return Scaffold(
       appBar: AppBar(
-        title: Text(location!.name),
+        title: Text(location.name),
         actions: [
           IconButton(
             onPressed: () {
@@ -37,7 +34,8 @@ class LocationDetail extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: LocationTile(location: location),
             ),
-          ]..addAll(textSections(location)),
+            ...textSections(location),
+          ],
         ),
       ),
     );

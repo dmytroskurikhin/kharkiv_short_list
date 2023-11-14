@@ -4,14 +4,7 @@ import '/screens/locations.dart';
 import '../models/location.dart';
 
 class TabsScreen extends StatefulWidget {
-  const TabsScreen({
-    super.key,
-    required this.onToggleFavorite,
-    required this.favoriteLocation,
-  });
-  static const routeName = '/tabs';
-  final void Function(Location location) onToggleFavorite;
-  final List<Location> favoriteLocation;
+  const TabsScreen({super.key});
 
   @override
   State<TabsScreen> createState() => _TabsScreenState();
@@ -19,25 +12,39 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedPageIndex = 0;
-
+  
   void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
     });
   }
 
+  final List<Location> _favoriteLocations = [];
+  void _toggleLocationFavoriteStatus(Location location) {
+    final isExisting = _favoriteLocations.contains(location);
+    if (isExisting) {
+      setState(() {
+        _favoriteLocations.remove(location);
+      });
+    } else {
+      setState(() {
+        _favoriteLocations.add(location);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activePage = Locations(
       availibleLocations: dummyLocations,
-      onToggleFavorite: widget.onToggleFavorite,
+      onToggleFavorite: _toggleLocationFavoriteStatus,
     );
     var activePageTitle = 'Всі локації';
 
     if (_selectedPageIndex == 1) {
       activePage = Locations(
-        availibleLocations: widget.favoriteLocation,
-        onToggleFavorite: widget.onToggleFavorite,
+        availibleLocations: _favoriteLocations,
+        onToggleFavorite: _toggleLocationFavoriteStatus,
       );
       activePageTitle = 'Вибрані локації';
     }
