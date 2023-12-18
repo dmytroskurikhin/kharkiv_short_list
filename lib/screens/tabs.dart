@@ -1,50 +1,37 @@
 import 'package:flutter/material.dart';
-import '../data/dummy_data.dart';
-import '/screens/locations.dart';
-import '../models/location.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/locations_provider.dart';
+import '../providers/favorites_provider.dart';
+import '../screens/locations.dart';
 
-class TabsScreen extends StatefulWidget {
+class TabsScreen extends ConsumerStatefulWidget {
   const TabsScreen({super.key});
 
   @override
-  State<TabsScreen> createState() => _TabsScreenState();
+  ConsumerState<TabsScreen> createState() => _TabsScreenState();
 }
 
-class _TabsScreenState extends State<TabsScreen> {
+class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
-  
+
   void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
     });
   }
 
-  final List<Location> _favoriteLocations = [];
-  void _toggleLocationFavoriteStatus(Location location) {
-    final isExisting = _favoriteLocations.contains(location);
-    if (isExisting) {
-      setState(() {
-        _favoriteLocations.remove(location);
-      });
-    } else {
-      setState(() {
-        _favoriteLocations.add(location);
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final dummyLocations = ref.watch(locationsProvider);
+    final favoriteLocations = ref.watch(favoriteLocationsProvider);
     Widget activePage = Locations(
-      availibleLocations: dummyLocations,
-      onToggleFavorite: _toggleLocationFavoriteStatus,
+      availibleLocations: dummyLocations
     );
     var activePageTitle = 'Всі локації';
 
     if (_selectedPageIndex == 1) {
       activePage = Locations(
-        availibleLocations: _favoriteLocations,
-        onToggleFavorite: _toggleLocationFavoriteStatus,
+        availibleLocations: favoriteLocations,
       );
       activePageTitle = 'Вибрані локації';
     }

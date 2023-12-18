@@ -5,22 +5,13 @@ import '../widgets/image_banner.dart';
 import '../widgets/tile_overlay.dart';
 
 class Locations extends StatelessWidget {
-  static const routeName = '/locations';
-
-  const Locations({
-    required this.availibleLocations,
-    required this.onToggleFavorite,
-    super.key,
-  });
-
+  const Locations({required this.availibleLocations, super.key});
   final List<Location> availibleLocations;
-  final void Function(Location location) onToggleFavorite;
 
   void _onLocationTap(BuildContext context, Location location) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => LocationDetail(
-          onToggle: onToggleFavorite,
           location: location,
         ),
       ),

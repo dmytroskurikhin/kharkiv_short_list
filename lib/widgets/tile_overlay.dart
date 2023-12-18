@@ -3,9 +3,8 @@ import '../models/location.dart';
 import 'location_tile.dart';
 
 class TileOverlay extends StatelessWidget {
-  final Location location;
-
   const TileOverlay(this.location, {super.key});
+  final Location location;
 
   @override
   Widget build(BuildContext context) {

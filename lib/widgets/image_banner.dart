@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+//We need this chunk for possibility to change color in 'location_detail.dart'
 
 class ImageBanner extends StatelessWidget {
-  //We need this chunk for possibility to change color in 'location_detail.dart'
+  const ImageBanner({
+    super.key,
+    required this.assetPath,
+    this.height = 200.0,
+  });
+
   final String assetPath;
   final double height;
-
-  const ImageBanner({super.key, required this.assetPath, this.height = 200.0});
-
+  
   @override
   Widget build(BuildContext context) {
     return Container(

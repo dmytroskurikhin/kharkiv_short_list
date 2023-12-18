@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'screens/tabs.dart';
 
-
 void main() {
-  runApp(App());
+  runApp(
+    const ProviderScope(
+      child: App(),
+    ),
+  );
 }
 
 final theme = ThemeData(
@@ -17,14 +21,13 @@ final theme = ThemeData(
 );
 
 class App extends StatelessWidget {
-  App({super.key});
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
       home: const TabsScreen(),
-      
     );
   }
 }

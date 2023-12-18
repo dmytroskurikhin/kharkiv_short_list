@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
+//We need this chunk for possibility to change color in 'location_detail.dart'
 class TextSection extends StatelessWidget {
-  //We need this chunk for possibility to change color in 'location_detail.dart'
+  const TextSection(this._title, this._body, {super.key});
+  
   final String _title;
   final String _body;
-  const TextSection(this._title, this._body, {super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,7 @@ final List<Location> dummyLocations = [
       name: 'Селекційна станція',
       imagePath: 'assets/images/breeding_st.jpg',
       tourPackageName: 'Пакет Український модерн',
-      userItinerarySummary: 'За домовленістю',
+      summary: 'За домовленістю',
       facts: [
         LocationFact('Про пам\'ятку',
             'Харківська селекційна станція так і лишилася недобудованою. Вишукану красу головної споруди вигідно підкреслюють скромні, та не менш вишукані будиночки, що вільно розкинулися по садибі.'),
@@ -16,10 +16,10 @@ final List<Location> dummyLocations = [
       ]),
   Location(
       id: 2,
-      name: 'Житлові будинки',
+      name: 'Котеджне містечко',
       imagePath: 'assets/images/trotsenko_houses.jpg',
       tourPackageName: 'Пакет Троценко',
-      userItinerarySummary: '24/7 hours',
+      summary: '24/7 hours',
       facts: [
         LocationFact('Про пам\'ятку',
             'Чотириквартирні двоповерхові будинки блокувалися у дві дзеркально-симетричні секції. Секція складалася з двох різних за плануванням, але однакових за складом приміщень окремих трикімнатних квартир, розташованих в двох рівнях. Вони були розраховані на заселення сім’ями з 4-5 людей.'),
@@ -31,7 +31,7 @@ final List<Location> dummyLocations = [
       name: 'Школа старшин',
       imagePath: 'assets/images/sherv_starsh.jpg',
       tourPackageName: 'Пакет Конструктивізм',
-      userItinerarySummary: '24/7 hours',
+      summary: '24/7 hours',
       facts: [
         LocationFact('Про пам\'ятку',
             'Цей заклад підготував у міжвоєнний час близько 1000 червоних командирів, а в 1920-х роках, це була передова інституція, що запровадила розповсюдження української мови у Червоній армії. '),
@@ -43,7 +43,7 @@ final List<Location> dummyLocations = [
       name: 'Селище Артема',
       imagePath: 'assets/images/artema_sel.jpg',
       tourPackageName: 'Пакет Конструктивізм',
-      userItinerarySummary: '24/7 hours',
+      summary: '24/7 hours',
       facts: [
         LocationFact('Про пам\'ятку',
             'Селище Артема знаходиться в "мішку" промислової забудови Слобідського району, напевно тому таке відчуття, що час тут якщо не зупинився, то явно сповільнився'),
@@ -55,7 +55,7 @@ final List<Location> dummyLocations = [
       name: 'Двадцятий будинок',
       imagePath: 'assets/images/20_y.jpg',
       tourPackageName: 'ХТЗ Package',
-      userItinerarySummary: '24/7 hours',
+      summary: '24/7 hours',
       facts: [
         LocationFact('Про пам\'ятку',
             'Будинок довжиною 600 метрів має 38 під\'їздів та виходить одночасно на три вулиці району займаючи цілий квартал. Будувався в 1930-тї роки в рамках проєкту Соцмістечка Новий Харків, тоді він іменувався 3-м житлокомбінатом і призначався для іноземних фахівців.'),
@@ -67,7 +67,7 @@ final List<Location> dummyLocations = [
       name: 'Житлові будинки',
       imagePath: 'assets/images/rzhepish.jpg',
       tourPackageName: 'Пакет Ржепішевський',
-      userItinerarySummary: '24/7 hours',
+      summary: '24/7 hours',
       facts: [
         LocationFact('Про пам\'ятку',
             'Житлові будинки: вул. Чайковська, 15 (1910-ті роки, архітектор Гінзбург Олександр Маркович); вул. Чайковська, 17 (1910-ті, архітектор Ржепишевський Олександр Іванович).'),
@@ -78,10 +78,11 @@ final List<Location> dummyLocations = [
       name: 'Будинок Бурткевича',
       imagePath: 'assets/images/burtkevich.jpg',
       tourPackageName: 'Пакет Історичний центр',
-      userItinerarySummary: '24/7 hours',
+      summary: '24/7 hours',
       facts: [
         LocationFact('Про пам\'ятку',
             'Будинок був збудований у 1888 р. за проектом Олександра Шиле, який був доопрацьований архітектором А. Томсоном.'),
-        LocationFact('Як дістатися', 'Метро Площа Конституції, вул. Полтавський Шлях, 1.'),
+        LocationFact('Як дістатися',
+            'Метро Площа Конституції, вул. Полтавський Шлях, 1.'),
       ]),
 ];

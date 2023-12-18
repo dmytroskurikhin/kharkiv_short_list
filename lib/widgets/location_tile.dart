@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../models/location.dart';
 
 class LocationTile extends StatelessWidget {
-  final Location location;
-
   const LocationTile({super.key, required this.location});
+
+  final Location location;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class LocationTile extends StatelessWidget {
                 .copyWith(color: Colors.white),
           ),
           Text(
-            location.userItinerarySummary.toUpperCase(),
+            location.summary.toUpperCase(),
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
