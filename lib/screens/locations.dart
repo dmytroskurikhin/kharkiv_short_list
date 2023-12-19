@@ -23,11 +23,14 @@ class Locations extends StatelessWidget {
       onTap: () => _onLocationTap(context, location),
       child: SizedBox(
         height: 200.0,
-        child: Stack(
-          children: [
-            ImageBanner(assetPath: location.imagePath, height: 245.0),
-            TileOverlay(location),
-          ],
+        child: Hero(
+          tag: location.id,
+          child: Stack(
+            children: [
+              ImageBanner(assetPath: location.imagePath, height: 245.0),
+              TileOverlay(location),
+            ],
+          ),
         ),
       ),
     );

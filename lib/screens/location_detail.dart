@@ -19,7 +19,7 @@ class LocationDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final favoriteLocations = ref.watch(favoriteLocationsProvider);
-    bool isFavorite = favoriteLocations.contains(location);
+    final isFavorite = favoriteLocations.contains(location);
     return Scaffold(
       appBar: AppBar(
         title: Text(location.name),
@@ -39,7 +39,9 @@ class LocationDetail extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ImageBanner(assetPath: location.imagePath),
+            Hero(
+                tag: location.id,
+                child: ImageBanner(assetPath: location.imagePath)),
             Padding(
               padding: const EdgeInsets.all(16),
               child: LocationTile(location: location),

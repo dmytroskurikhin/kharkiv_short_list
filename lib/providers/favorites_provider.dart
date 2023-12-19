@@ -4,7 +4,7 @@ import '../models/location.dart';
 class FavoriteLocationsNotifier extends StateNotifier<List<Location>> {
   FavoriteLocationsNotifier() : super([]);
 
-  //*bool because we want return for changin status of star icon
+  //*bool because we want return for changing status of star icon
   bool toggleLocationFavoriteStatus(Location location) {
     final locationIsFavorite = state.contains(location);
     if (locationIsFavorite) {
@@ -21,11 +21,9 @@ class FavoriteLocationsNotifier extends StateNotifier<List<Location>> {
 }
 
 final favoriteLocationsProvider =
-    StateNotifierProvider<FavoriteLocationsNotifier, List<Location>>(
-  (ref) {
-    return FavoriteLocationsNotifier();
-  },
-);
+    StateNotifierProvider<FavoriteLocationsNotifier, List<Location>>((ref) {
+  return FavoriteLocationsNotifier();
+});
 
 /*void _toggleLocationFavoriteStatus(Location location) {
     final isExisting = _favoriteLocations.contains(location);
